@@ -1,0 +1,22 @@
+# YYC³ agent-core — uv workspace root (virtual manifest)
+#
+# Fork-and-Own baseline of the four Octop companion packages:
+#   packages/harness  -> yyc3-harness   (from octop-harness 1.0.2)
+#   packages/memory   -> yyc3-memory    (from octop-memory  1.0.1)
+#   packages/gateway  -> yyc3-gateway   (from octop-gateway 1.0.1)
+#   packages/browser  -> yyc3-browser   (from octop-browser 1.0.0)
+#
+# Distro names are rebranded to yyc3-*; internal import modules keep their
+# upstream names (octop_harness / octop_memory / octop_gateway / octop_browser)
+# so downstream import sites remain source-compatible.
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+# Wire intra-monorepo dependencies to workspace members so `yyc3-harness`
+# resolves against packages/memory & packages/browser instead of PyPI.
+[tool.uv.sources]
+yyc3-harness = { workspace = true }
+yyc3-memory = { workspace = true }
+yyc3-gateway = { workspace = true }
+yyc3-browser = { workspace = true }
