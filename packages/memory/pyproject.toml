@@ -35,7 +35,7 @@ embeddings = ["sentence-transformers>=2.2"]  # local embeddings for chroma/qdran
 # LangGraph checkpointers
 langgraph = [  # SQLite (default; no extra runtime deps beyond these)
     "langgraph-checkpoint>=2.0",
-    "langgraph-checkpoint-sqlite>=2.0",
+    "langgraph-checkpoint-sqlite>=3.1.2",
 ]
 langgraph-postgres = [
     "langgraph-checkpoint>=2.0",
@@ -62,7 +62,7 @@ dev = [
     "click>=8.0",
     "langgraph>=0.2",
     "langgraph-checkpoint>=2.0",
-    "langgraph-checkpoint-sqlite>=2.0",
+    "langgraph-checkpoint-sqlite>=3.1.2",
     # Without this the whole tests/test_postgres.py suite skips silently, so
     # the Postgres backend ships untested. Needs a reachable server too; the
     # suite still skips (rather than fails) when it cannot connect.
